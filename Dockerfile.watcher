@@ -9,6 +9,5 @@ RUN apk add --update \
 RUN pip install .
 
 ENV SETTLE_DOWN_TIME 600
-ENV INOTIFYWAIT_OPTS
 
 ENTRYPOINT ["/tvnamer/tools/tvnamer_watcher.sh"]
