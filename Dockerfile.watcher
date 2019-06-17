@@ -1,0 +1,13 @@
+FROM python:3
+ADD . /tvnamer
+WORKDIR /tvnamer
+
+RUN apk add --update \
+    inotify-tools \
+  && rm -rf /var/cache/apk/*
+
+RUN pip install .
+
+ENV SETTLE_DOWN_TIME 600
+
+ENTRYPOINT ["/tvnamer/tools/tvnamer_watcher.sh"]
